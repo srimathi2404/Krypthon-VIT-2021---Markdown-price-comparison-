@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown - Your Price Comparison Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+        }
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .product-details {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-details p {
+            margin: 5px 0;
+            color: #555;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Markdown - Your Price Comparison Tool</h1>
+    </div>
+
+    <div class="container">
+        <form action="/" method="post">
+            <label for="product">Enter Product Name:</label>
+            <input type="text" id="product" name="product" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if flipkart_details %}
+        <div class="product-details">
+            <h2>Flipkart</h2>
+            <p><strong>Product:</strong> {{ flipkart_details['name'] }}</p>
+            <p><strong>Price:</strong> {{ flipkart_details['price'] }}</p>
+            <p><strong>Rating:</strong> {{ flipkart_details['rating'] }}</p>
+            <p><strong>Reviews:</strong> {{ flipkart_details['reviews'] }}</p>
+        </div>
+        {% endif %}
+
+        {% if amazon_details %}
+        <div class="product-details">
+            <h2>Amazon</h2>
+            <p><strong>Product:</strong> {{ amazon_details['name'] }}</p>
+            <p><strong>Price:</strong> {{ amazon_details['price'] }}</p>
+            <p><strong>Rating:</strong> {{ amazon_details['rating'] }}</p>
+            <p><strong>Reviews:</strong> {{ amazon_details['reviews'] }}</p>
+        </div>
+        {% endif %}
+
+        {% if snapdeal_details %}
+        <div class="product-details">
+            <h2>Snapdeal</h2>
+            <p><strong>Product:</strong> {{ snapdeal_details['name'] }}</p>
+            <p><strong>Price:</strong> {{ snapdeal_details['price'] }}</p>
+            <p><strong>Rating:</strong> {{ snapdeal_details['rating'] }}</p>
+            <p><strong>Reviews:</strong> {{ snapdeal_details['reviews'] }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        Developed in VIT Hackathon - Krypthon 2021
+    </footer>
+</body>
+</html>
